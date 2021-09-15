@@ -2,11 +2,14 @@
 
 #Autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
-feh --bg-fill $HOME/Wallpaper/nord_lights.png &
+#feh --bg-fill $HOME/Wallpaper/nord_lights.png &
+nm-applet &
+nitrogen --restore &
 picom &
-xrdb ~/.Xresources &
+#xrdb ~/.Xresources &
 xsetroot -cursor_name left_ptr &
-$HOME/.config/polybar/forest/launch.sh
+#polybar, available themes = gradient, forest
+$HOME/.config/polybar/gradient/launch.sh
 
 #Workspaces
 bspc monitor -d I II III IV V
@@ -21,7 +24,13 @@ bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+bspc rule -a TelegramDesktop desktop='^3'
+bspc rule -a vlc desktop='^5' follow=on
+bspc rule -a firefox desktop='^1'
+bspc rule -a Eog state=floating follow=on
+bspc rule -a Blueman-manager state=floating
+bspc rule -a flameshot state=floating
+wmname LG3D

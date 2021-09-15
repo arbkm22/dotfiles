@@ -14,11 +14,14 @@ super + t
 
 # spectacle
 Print
-    spectacle
+    flameshot gui 
+
+super + Print
+    flameshot full -c -p /home/hellking/Pictures/Screenshot
 
 # program launcher
 super + @space
-	$HOME/.config/rofi/launchers/colorful/launcher.sh
+    $HOME/.config/rofi/launchers/colorful/launcher.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -95,8 +98,11 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
+#super + {_,shift + }{1-9,0}
+#	bspc {desktop -f,node -d} '^{1-9,10}'
+
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+    {$HOME/bin/wall.sh, bspc node -d} '^{1-9,10}'
 
 #
 # preselect
